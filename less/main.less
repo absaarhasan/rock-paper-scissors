@@ -1,0 +1,350 @@
+/* mixins */
+
+.drop-shadow (@x: 4px, @y: 2px, @blur: 4px, @spread: 4px, @alpha: 0.25) {
+  -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.opacity(@color,@alpha){
+  @rgba: rgba(red(@color),green(@color),blue(@color),@alpha);
+  @argb: argb(@rgba);
+  background-color: @color;
+  background-color: @rgba;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+}
+
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start, @stop);
+  background-image: -moz-linear-gradient(@origin, @start, @stop);
+  background-image: -o-linear-gradient(@origin, @start, @stop);
+  background-image: -ms-linear-gradient(@origin, @start, @stop);
+  background-image: linear-gradient(@origin, @start, @stop);
+}
+
+
+/* Reset */
+
+* {
+
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+
+}
+
+html {
+  height:100%;
+
+}
+
+body {
+
+  font-size:14px;
+  font-family:lato;
+  .gradient(top, @color5, @color6);
+  height:100%;
+}
+
+/* Colours */
+
+@color1: #ccc;
+@color2:#000;
+@color3:#009900;
+@color4:#cc0033;
+@color5:#fff;
+@color6: #eaeaea;
+@color7: #f5f5f5;
+@color8: #dadada;
+
+
+/* theme */
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/Lato-Light.ttf');
+  font-weight: normal;
+}
+
+
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/Lato-Regular.ttf');
+  font-weight: bold;
+}
+
+/* header */
+
+header {
+
+  .gradient(top, @color7, @color8);
+  .drop-shadow(0px, 0px, 2px, 2px, 0.15);
+  text-align:center;
+  padding:1em;
+  border-bottom: 1px solid @color1;
+
+  h1 {
+    color:@color2;
+    fon-size:2em;
+  }
+}
+
+/* alert box */
+
+#alert {
+
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:4em;
+  margin-top:0.5em;
+
+  p {
+    max-width:80%;
+    color:@color4;
+    text-align:center;
+  }
+
+  &.busy {
+
+    background-color:@color4;
+    .drop-shadow(0px, 0px, 2px, 2px, 0.15);
+
+    p {
+
+      font-size:2em;
+      color: @color5;
+      font-weight:bold;
+    }
+  }
+
+  &.finished {
+
+    background-color:@color3;
+    .drop-shadow(0px, 0px, 2px, 2px, 0.15);
+
+    p {
+
+      font-size:2em;
+      color: @color5;
+      font-weight:bold;
+    }
+  }
+}
+
+/* containers */
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+  width:90%;
+  margin: 0 auto;
+  max-width: 1200px
+
+}
+
+/* game display */
+
+ul{
+
+  display:inline-block;
+  box-sizing: border-box;
+  width:50%;
+  list-style-type: none;
+
+  li {
+    margin-top:0.5em;
+    text-indent:-10000px;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: auto 100%;
+    height:4em;
+
+
+  }
+
+  #userRock {
+    background-image: url("../images/user_stone.png")
+  }
+
+  #userRock.active {
+    background-image: url("../images/user_stone_active.png")
+  }
+
+  #userRock.selected {
+    background-image: url("../images/user_stone_selected.png")
+  }
+
+  #userPaper {
+    background-image: url("../images/user_paper.png")
+  }
+
+  #userPaper.active {
+    background-image: url("../images/user_paper_active.png")
+  }
+
+  #userPaper.selected {
+    background-image: url("../images/user_paper_selected.png")
+  }
+
+  #userScissors {
+    background-image: url("../images/user_scissors.png")
+  }
+
+  #userScissors.active {
+    background-image: url("../images/user_scissors_active.png")
+  }
+
+  #userScissors.selected {
+    background-image: url("../images/user_scissors_selected.png")
+  }
+
+  #comRock {
+    background-image: url("../images/com_stone.png")
+  }
+
+  #comRock.active {
+    background-image: url("../images/com_stone_active.png")
+  }
+
+  #comRock.selected {
+    background-image: url("../images/com_stone_selected.png")
+  }
+
+  #comPaper {
+    background-image: url("../images/com_paper.png")
+  }
+
+  #comPaper.active {
+    background-image: url("../images/com_paper_active.png")
+  }
+
+  #comPaper.selected {
+    background-image: url("../images/com_paper_selected.png")
+  }
+
+  #comScissors {
+    background-image: url("../images/com_scissors.png")
+  }
+
+  #comScissors.active {
+    background-image: url("../images/com_scissors_active.png")
+  }
+
+  #comScissors.selected {
+    background-image: url("../images/com_scissors_selected.png")
+  }
+}
+
+/* results display */
+
+table {
+  margin-top:1em;
+  width:100%;
+  border-collapse:collapse;
+
+
+
+  th {
+    width:50%;
+    background-color:@color1;
+    font-size:1.5em;
+    text-align: center;
+    font-weight:bold;
+    padding:0.25em 0;
+    color:@color2;
+    border:1px solid @color1;
+    .gradient(top, @color7, @color8);
+  }
+
+  td {
+    width:50%;
+    font-size:1.5em;
+    text-align: center;
+    padding:0.25em 0;
+    color:@color2;
+    border:1px solid @color1;
+    background-color: @color6;
+
+    &.winner {
+      color:@color3;
+      font-weight:bold;
+
+    }
+  }
+}
+
+/* button */
+
+#startButton {
+
+  margin-top:1em;
+  background-color:@color2;
+  color:@color5;
+  font-size:1.5em;
+  font-weight:bold;
+  text-align:center;
+  padding:0.25em;
+  width:100%;
+  cursor: pointer;
+  .border-radius(15px);
+  .drop-shadow(0px, 0px, 2px, 2px, 0.15);
+  .gradient(top, #555, #111);
+
+  &.busy {
+    background-color:@color4;
+    background-image: none;
+    cursor: default;
+  }
+}
+
+/* footer */
+
+footer {
+
+  padding:1em;
+  text-align:center;
+
+  p {
+    color:@color2;
+    font-size:1em;
+    cursor: pointer;
+    text-decoration: underline;
+
+  }
+}
+
+
+@media only screen and (min-width: 700px) {
+
+  body {
+
+    font-size:24px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+
+  body {
+
+    font-size:28px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+
+
+}

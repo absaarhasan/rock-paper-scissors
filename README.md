@@ -22,19 +22,11 @@ So that I can spend an hour of my day having fun.
 
 ### Viewing Info
 
-This is a responsive design, so please feel free to use it on mobile, tablet, or desktop.
-
-The Javascript should work on all browsers, but the CSS may struggle on older versions of IE.
-
-I built it on Chrome OSX, and I have tested it Safari and FF OSX.
-
-The app may  be viewed on the following page:
-
-/index.html
-
-The Jasmine Spec Runner may be viewed here:
-
-/jasmine/SpecRunner.html
+- This is a responsive design, so please feel free to use it on mobile, tablet, or desktop.
+- The Javascript should work on all browsers, but the CSS may struggle on older versions of IE.
+- I built it on Chrome OSX, and I have tested it Safari and FF OSX.
+- The app may  be viewed on the following page: /index.html
+- The Jasmine Spec Runner may be viewed here: /jasmine/SpecRunner.html
 
 
 

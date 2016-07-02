@@ -29,6 +29,7 @@ var app = (function () {
         clock : new Clock(),
         player1: new Player("user"),
         player2: new Player("computer"),
+        playerTest: new Player("test"),
         activateChoiceBtns : activateChoiceBtns,
         deactivateChoiceBtns : deactivateChoiceBtns,
         setChoice : setChoice,

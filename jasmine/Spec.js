@@ -32,7 +32,7 @@ describe("Rock, Paper, Scissors Game", function() {
             spyOn(app, 'startGame');
             spyOn(app, 'resetGame');
 
-            init();
+            app.init();
 
         });
 
@@ -57,7 +57,7 @@ describe("Rock, Paper, Scissors Game", function() {
 
         it("should return a random choice", function() {
 
-            var choice = randomChoice();
+            var choice = app.randomChoice();
 
             expect(typeof choice).toMatch("string");
 
@@ -237,21 +237,21 @@ describe("Rock, Paper, Scissors Game", function() {
 
         it("should be able to create new players", function() {
 
-            var player = new Player("test");
+            var player = app.playerTest;
             expect(player).toBeDefined();
 
         });
 
         it("should record the player's score", function() {
 
-            var player = new Player("test");
+            var player = app.playerTest;
             expect(player.score).toEqual(0);
 
         });
 
         it("should provide the player with a random choice", function() {
 
-            var player = new Player("test");
+            var player = app.playerTest;
             player.startRandomChoice();
 
             jasmine.clock().tick(100);
@@ -400,6 +400,7 @@ describe("Rock, Paper, Scissors Game", function() {
 
             jasmine.clock().install();
 
+            app.resetGame();
             app.startGame();
 
         });
@@ -506,7 +507,7 @@ describe("Rock, Paper, Scissors Game", function() {
 
         it("should determine if the game is a tie", function() {
 
-            var results = calculateWinner("Rock","Rock");
+            var results = app.calculateWinner("Rock","Rock");
 
             expect(results.winner).toMatch("none");
 
@@ -516,13 +517,13 @@ describe("Rock, Paper, Scissors Game", function() {
 
         it("should determine if the user has won", function() {
 
-            var results = calculateWinner("Rock","Scissors");
+            var results = app.calculateWinner("Rock","Scissors");
 
             expect(results.winner).toMatch("user");
 
             expect(results.msg).toMatch("Rock wins!");
 
-            var results = calculateWinner("Paper","Rock");
+            var results = app.calculateWinner("Paper","Rock");
 
             expect(results.winner).toMatch("user");
 
@@ -532,13 +533,13 @@ describe("Rock, Paper, Scissors Game", function() {
 
         it("should determine if the computer has won", function() {
 
-            var results = calculateWinner("Rock","Paper");
+            var results = app.calculateWinner("Rock","Paper");
 
             expect(results.winner).toMatch("computer");
 
             expect(results.msg).toMatch("Paper wins!");
 
-            var results = calculateWinner("Paper","Scissors");
+            var results = app.calculateWinner("Paper","Scissors");
 
             expect(results.winner).toMatch("computer");
 
